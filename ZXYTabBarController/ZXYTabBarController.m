@@ -3,7 +3,7 @@
 //  ZXYTabBarModel
 //
 //  Created by Rockeen on 15/11/18.
-//  Copyright (c) 2015年 Rockeen. All rights reserved.
+//  Copyright (c) 2015年 Rockeen https://github.com/rockeen. All rights reserved.
 //
 
 #import "ZXYTabBarController.h"
