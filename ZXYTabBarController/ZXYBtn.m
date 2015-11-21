@@ -25,11 +25,12 @@
 
 -(void)initView:(UITabBarItem *)item
 {
+    
     //添加btn中的图片控件
-    CGFloat imgVX=(self.frame.size.width-50)/2;
-    CGFloat imgVY=3;
-    CGFloat imgVW=50;
-    CGFloat imgVH=30;
+    CGFloat imgVW=30;
+    CGFloat imgVH=20;
+    CGFloat imgVX=(self.frame.size.width-imgVW)/2;
+    CGFloat imgVY=5;
     
     _imgV = [[UIImageView alloc] initWithFrame:CGRectMake(imgVX, imgVY, imgVW, imgVH)];
 
@@ -37,10 +38,11 @@
     _imgV.image = item.image;
 
     //添加btn中的label控件
-    CGFloat labelX=(self.frame.size.width-50)/2;
-    CGFloat labelY=35;
     CGFloat labelW=50;
     CGFloat labelH=10;
+    CGFloat labelX=(self.frame.size.width-labelW)/2;
+    CGFloat labelY=30;
+    
     
     UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(labelX, labelY, labelW, labelH)];
     
@@ -57,22 +59,22 @@
     label.font = [UIFont systemFontOfSize:12];
     
     //设置字体颜色
-    label.textColor = [UIColor redColor];
+    label.textColor = [UIColor whiteColor];
     
     //判断数据中是否存在title
-    if (item.title) {
-        //如果title存 则都添加
+//    if (item.title) {
+//        //如果title存 则都添加
         [self addSubview:_imgV];
         [self addSubview:label];
-    }
-    else
-    {
-        //如果title 不存在 则图片占据全部btn空间
-        _imgV.frame = CGRectMake((self.frame.size.width-50)/2, 3, 50, 42);
-        
-        //添加imgv控件
-        [self addSubview:_imgV];
-    }
+//    }
+//    else
+//    {
+//        //如果title 不存在 则图片占据全部btn空间
+//        _imgV.frame = CGRectMake((self.frame.size.width-50)/2, 3, 50, 42);
+//        
+//        //添加imgv控件
+//        [self addSubview:_imgV];
+//    }
     
 }
 

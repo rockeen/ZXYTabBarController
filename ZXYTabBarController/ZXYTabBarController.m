@@ -115,9 +115,10 @@
         //添加btn的点击方法
         [btn addTarget:self action:@selector(btnAct:) forControlEvents:UIControlEventTouchUpInside];
         
-        //默认第一个为选中，设置选中状态的图片
+        //设置第一个选中状态的图片
         if (i==self.selectCount) {
             btn.imgV.image=btn.item.selectedImage;
+            preBtn=btn;
         }
         
         
@@ -139,38 +140,13 @@
     //获取btn下标
     
     NSInteger index = btn.tag-100;
-    //第一个btn的高亮取消
-    ZXYBtn *btnOne= (ZXYBtn *)[_tabbarView viewWithTag:100];
     
     //选中图片和非选中图片
     
-    //第一次点击
-    if (preBtn==nil ) {
-        
-        //点的第一个
-        if (btn==btnOne) {
-            btn.imgV.image=btn.item.selectedImage;
-            
-        }else{
-            
-            btnOne.imgV.image=btnOne.item.image;
-            
-        }
-        
-        
-    }else{
-        
-        if (preBtn==btn){
-            
-            btn.imgV.image= btn.item.selectedImage;
-            
-        }
-        
-        else if (preBtn!=btn) {
+    if (btn!=preBtn)
+    {
             preBtn.imgV.image= preBtn.item.image;
             btn.imgV.image=btn.item.selectedImage;
-        }
-        
         
     }
     
