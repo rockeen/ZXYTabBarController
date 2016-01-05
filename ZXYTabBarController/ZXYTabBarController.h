@@ -30,5 +30,14 @@
  */
 @property (nonatomic, strong) UIImageView *tabbarView;
 
+/**
+ *选中状态下lable的字体颜色
+ */
+@property (nonatomic, strong) UIColor *selectLabColor;
+
+/**
+ *非选中状态下lable的字体颜色
+ */
+@property (nonatomic, strong) UIColor *nomalLabColor;
 
 @end

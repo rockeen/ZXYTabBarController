@@ -41,6 +41,9 @@
     //将自定义的tabbar添加到原生tabbar上
     [self.tabBar addSubview:_tabbarView];
     
+    //默认选中第一个
+    self.selectCount=0;
+    
 }
 
 
@@ -110,6 +113,8 @@
         //创建btn 并且设置frame 与传入对应子控制器的tabBarItem属性
         ZXYBtn *btn = [[ZXYBtn alloc] initWithFrame:CGRectMake(i*kScreenW/count, 0, kScreenW/count, 49) tabbarItem:vc.tabBarItem];
         
+        btn.lable.textColor=self.nomalLabColor;
+        
         
         
         //添加btn的点击方法
@@ -117,8 +122,18 @@
         
         //设置第一个选中状态的图片
         if (i==self.selectCount) {
-            btn.imgV.image=btn.item.selectedImage;
+            
+            if (btn.item.selectedImage!=nil) {
+                
+                btn.imgV.image=btn.item.selectedImage;
+
+            }
+            btn.lable.textColor=self.selectLabColor;
             preBtn=btn;
+            btn.selected=YES;
+            
+            //通过下标实现页面切换
+            self.selectedIndex = i;
         }
         
         
@@ -145,10 +160,18 @@
     
     if (btn!=preBtn)
     {
-            preBtn.imgV.image= preBtn.item.image;
-            btn.imgV.image=btn.item.selectedImage;
+        //正常状态
+        preBtn.imgV.image= preBtn.item.image;
+        preBtn.lable.textColor=self.nomalLabColor;
+    
+        //选中状态
         
+        if (btn.item.selectedImage!=nil) {
+        btn.imgV.image=btn.item.selectedImage;
+        }
+        btn.lable.textColor=self.selectLabColor;
     }
+    
     
     
     //通过下标实现页面切换

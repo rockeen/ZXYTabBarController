@@ -64,7 +64,7 @@
 {
     [super viewWillAppear:animated];
     
-    //1.移除原生的btn
+    //移除原生的btn
     [self removeTabBarButton];
     
 

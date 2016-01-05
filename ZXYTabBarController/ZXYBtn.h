@@ -14,6 +14,8 @@
 
 @property (nonatomic, strong)UITabBarItem *item;
 
+@property (nonatomic, strong)UILabel *lable;
+
 
 /**
  *btn的初始化方法 ，需要两个参数：1。btn的frame大小 2.btn所需的数据
